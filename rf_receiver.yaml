@@ -1,0 +1,155 @@
+# https://esphome.io/guides/configuration-types.html#substitutions
+# https://esphome.io/guides/faq.html?highlight=secret#how-do-i-use-my-home-assistant-secrets-yaml
+substitutions:
+  device_name: rf_receiver
+  friendly_name: RF Receiver
+  # static_ip: !secret rf_receiver_ip
+  delayed_off: 200ms
+  wifi_ssid: !secret wifi_ssid_not
+  wifi_password: !secret wifi_password_not
+  gateway: !secret wifi_gateway_not
+  subnet: !secret wifi_subnet_not
+  dns1: !secret wifi_dns1_not
+  ap_password: !secret esphome_ap_password
+  api_password: !secret esphome_api_password
+  ota_password: !secret esphome_ota_password
+
+
+# https://esphome.io/components/esphome
+esphome:
+  name: ${device_name}
+  platform: ESP8266
+  board: d1_mini
+
+
+
+# https://esphome.io/components/wifi
+wifi:
+  ssid: "${wifi_ssid}"
+  password: "${wifi_password}"
+  # manual_ip:
+  #   static_ip: "${static_ip}"
+  #   gateway: "${gateway}"
+  #   subnet: "${subnet}"
+  #   dns1: "${dns1}"
+  ap:
+    ssid: ${friendly_name} E-AP
+    password: ${ap_password}
+
+
+
+# https://esphome.io/components/captive_portal.html
+captive_portal:
+
+
+
+# # https://esphome.io/components/web_server.html
+# web_server:
+#   port: 80
+
+
+
+# https://esphome.io/components/logger
+logger:
+  baud_rate: 0
+
+
+
+# https://esphome.io/components/api
+api:
+  password: ${api_password}
+
+
+
+# https://esphome.io/components/ota
+ota:
+  password: ${ota_password}
+
+
+
+# https://esphome.io/components/status_led
+status_led: 
+  pin:
+    number: GPIO2   # Onboard LED
+    inverted: true
+
+
+
+# https://esphome.io/components/remote_receiver.html
+remote_receiver:
+  pin: GPIO5
+  dump:
+    - rc_switch
+  tolerance: 60%
+  filter: 4us
+  idle: 4ms
+
+
+
+# https://esphome.io/components/binary_sensor/index.html
+binary_sensor:
+  # https://esphome.io/components/remote_receiver.html#remote-receiver-binary-sensor
+  ## Sonoff Remote 433 (Basement)
+  - platform: remote_receiver
+    name: ${remote_3} 1
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110001000'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 2
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110001100'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 3
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110000100'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 4
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110001001'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 5
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110000010'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 6
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110000101'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 7
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110000001'
+    filters:
+      - delayed_off: ${delayed_off}
+
+  - platform: remote_receiver
+    name: ${remote_3} 8
+    rc_switch_raw:
+      protocol: 1
+      code: '110011000110110110000011'
+    filters:
+      - delayed_off: ${delayed_off}

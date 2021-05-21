@@ -91,7 +91,7 @@ binary_sensor:
   # https://esphome.io/components/remote_receiver.html#remote-receiver-binary-sensor
   ## Sonoff Remote 433 (Basement)
   - platform: remote_receiver
-    name: ${remote_3} 1
+    name: Sonoff RM433 1
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110001000'
@@ -99,7 +99,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 2
+    name: Sonoff RM433 2
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110001100'
@@ -107,7 +107,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 3
+    name: Sonoff RM433 3
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110000100'
@@ -115,7 +115,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 4
+    name: Sonoff RM433 4
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110001001'
@@ -123,7 +123,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 5
+    name: Sonoff RM433 5
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110000010'
@@ -131,7 +131,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 6
+    name: Sonoff RM433 6
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110000101'
@@ -139,7 +139,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 7
+    name: Sonoff RM433 7
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110000001'
@@ -147,7 +147,7 @@ binary_sensor:
       - delayed_off: ${delayed_off}
 
   - platform: remote_receiver
-    name: ${remote_3} 8
+    name: Sonoff RM433 8
     rc_switch_raw:
       protocol: 1
       code: '110011000110110110000011'
